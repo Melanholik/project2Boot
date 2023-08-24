@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+
 public class UsersDetails implements UserDetails {
 
     private final User user;
@@ -13,7 +14,6 @@ public class UsersDetails implements UserDetails {
     public UsersDetails(User user) {
         this.user = user;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -47,7 +47,7 @@ public class UsersDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public User getUser() {
