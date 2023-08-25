@@ -2,6 +2,8 @@ package by.melanholik.demo.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -16,15 +18,17 @@ public class User {
 
     @Column(name = "name")
     @NotNull
+    @NotEmpty
     @Size(max = 100)
     private String name;
 
     @Column(name = "year_of_birth")
-    @NotNull
+    @Min(0)
     private int yearOfBirth;
 
     @Column(name = "password")
     @NotNull
+    @NotEmpty
     private String password;
 
     public User() {
