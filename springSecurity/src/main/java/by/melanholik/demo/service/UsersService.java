@@ -2,16 +2,18 @@ package by.melanholik.demo.service;
 
 import by.melanholik.demo.model.User;
 import by.melanholik.demo.repository.UsersRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class UsersService {
-
+    private final PasswordEncoder passwordEncoder;
     private final UsersRepository usersRepository;
 
-    public UsersService(UsersRepository usersRepository) {
+    public UsersService(PasswordEncoder passwordEncoder, UsersRepository usersRepository) {
+        this.passwordEncoder = passwordEncoder;
         this.usersRepository = usersRepository;
     }
 
@@ -20,6 +22,7 @@ public class UsersService {
     }
 
     public void add(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersRepository.save(user);
     }
 }
