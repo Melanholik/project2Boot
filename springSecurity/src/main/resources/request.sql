@@ -12,4 +12,12 @@ INSERT INTO users (name, year_of_birth, password)
 VALUES ('User1', 1980, 'password1'),
        ('User2', 1980, 'password2');
 
-SELECT * FROM users;
+SELECT *
+FROM users;
+
+TRUNCATE TABLE users;
+
+ALTER TABLE users
+    ADD COLUMN role VARCHAR(100) NOT NULL;
+
+ALTER TABLE users DROP COLUMN role;
