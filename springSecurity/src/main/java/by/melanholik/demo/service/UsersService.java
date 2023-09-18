@@ -2,6 +2,7 @@ package by.melanholik.demo.service;
 
 import by.melanholik.demo.model.User;
 import by.melanholik.demo.repository.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ public class UsersService {
     private final PasswordEncoder passwordEncoder;
     private final UsersRepository usersRepository;
 
+
+    @Autowired
     public UsersService(PasswordEncoder passwordEncoder, UsersRepository usersRepository) {
         this.passwordEncoder = passwordEncoder;
         this.usersRepository = usersRepository;
