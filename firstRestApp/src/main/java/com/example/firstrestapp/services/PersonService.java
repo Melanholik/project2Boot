@@ -2,6 +2,7 @@ package com.example.firstrestapp.services;
 
 import com.example.firstrestapp.models.Person;
 import com.example.firstrestapp.repositoryes.PersonRepository;
+import com.example.firstrestapp.util.PersonNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,6 @@ public class PersonService {
 
     public Person findById(Integer id) {
         Optional<Person> person = personRepository.findById(id);
-        return person.orElse(null);
+        return person.orElseThrow(PersonNotFoundException::new);
     }
 }
