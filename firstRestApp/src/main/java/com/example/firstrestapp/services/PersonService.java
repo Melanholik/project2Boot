@@ -4,6 +4,7 @@ import com.example.firstrestapp.models.Person;
 import com.example.firstrestapp.repositoryes.PersonRepository;
 import com.example.firstrestapp.util.PersonNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,5 +25,10 @@ public class PersonService {
     public Person findById(Integer id) {
         Optional<Person> person = personRepository.findById(id);
         return person.orElseThrow(PersonNotFoundException::new);
+    }
+
+    @Transactional
+    public void save(Person person) {
+        personRepository.save(person);
     }
 }
