@@ -6,6 +6,7 @@ import com.example.firstrestapp.util.PersonNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,13 @@ public class PersonService {
 
     @Transactional
     public void save(Person person) {
+        addParamToPerson(person);
         personRepository.save(person);
+    }
+
+    private void addParamToPerson(Person person) {
+        person.setCreatedAt(LocalDateTime.now());
+        person.setUpdatedAt(LocalDateTime.now());
+        person.setCreatedWho("ADMIN");
     }
 }

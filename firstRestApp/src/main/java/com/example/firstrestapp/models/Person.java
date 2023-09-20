@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "person")
 public class Person {
@@ -23,6 +25,16 @@ public class Person {
     @Min(value = 1900, message = "Birthday year should be more than 1980")
     private Integer birthdayYear;
 
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "created_who")
+    private String createdWho;
+
+
     public Person() {
     }
 
@@ -30,6 +42,14 @@ public class Person {
         this.id = id;
         this.name = name;
         this.birthdayYear = birthdayYear;
+    }
+
+    public Person(String name, Integer birthdayYear, LocalDateTime createdAt, LocalDateTime updatedAt, String createdWho) {
+        this.name = name;
+        this.birthdayYear = birthdayYear;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.createdWho = createdWho;
     }
 
     public Integer getId() {
@@ -54,5 +74,29 @@ public class Person {
 
     public void setBirthdayYear(Integer birthdayYear) {
         this.birthdayYear = birthdayYear;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCreatedWho() {
+        return createdWho;
+    }
+
+    public void setCreatedWho(String createdWho) {
+        this.createdWho = createdWho;
     }
 }

@@ -26,5 +26,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/udemySpringCourseProject2</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="springCourseDTO@localhost" uuid="936ce3db-c527-4bcb-8149-6b4d40d0669a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/springCourseDTO</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
